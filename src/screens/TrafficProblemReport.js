@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   StyleSheet,
 } from 'react-native'
-import { Input, CheckBox } from '@rneui/themed'
+import { Input } from '@rneui/themed'
 import { Picker } from '@react-native-picker/picker'
 
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
@@ -15,64 +15,19 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 const EmergencyReport = () => {
   const [selectedLanguage, setSelectedLanguage] = useState()
 
-  const [check, setCheck] = useState(true)
-
   return (
     <SafeAreaView className="bg-[#D9D9D9] flex-1">
       <ScrollView>
         <View className="items-center space-y-4 mt-[30]">
-          <Text className="text-3xl text-black font-bold">แจ้งอุบัติเหตุ</Text>
+          <Text className="text-3xl text-black font-bold">แจ้งปัญหา</Text>
         </View>
 
         <View className="px-6 mt-4 mb-[30]">
           <View className="mb-4">
             <Text className="ml-1 text-base font-bold text-black">
-              ยานพาหนะ
+              ลักษณะของปัญหา
             </Text>
-            <View className="border mx-3 border-[gray] rounded-2xl">
-              <Picker
-                placeholder="เลือกยานพาหนะ"
-                label="ยานพาหนะ"
-                selectedValue={selectedLanguage}
-                onValueChange={(itemValue, itemIndex) =>
-                  setSelectedLanguage(itemValue)
-                }>
-                <Picker.Item label="รถยนต์" value="รถยนต์" />
-                <Picker.Item label="จักรยานยนต์" value="จักรยานยนต์" />
-                <Picker.Item
-                  label="จักรยาน, สกูตเตอร์"
-                  value="จักรยาน, สกูตเตอร์"
-                />
-                <Picker.Item label="รถบรรทุก" value="รถบรรทุก" />
-              </Picker>
-            </View>
-          </View>
 
-          <View className="mb-4">
-            <Text className="ml-1 text-base font-bold text-black">
-              มีคู่กรณีมั้ย
-            </Text>
-            <View className="flex-row">
-              <CheckBox
-                title="มี"
-                checked={check}
-                onPress={() => setCheck(true)}
-                containerStyle={styles.checkboxStyle}
-              />
-
-              <CheckBox
-                title="ไม่มี"
-                checked={!check}
-                onPress={() => setCheck(false)}
-                containerStyle={styles.checkboxStyle}
-              />
-            </View>
-          </View>
-
-          <View className="mb-4">
-            <Text className="ml-1 text-base font-bold text-black">
-              ยานพาหนะคู่กรณี
-            </Text>
             <View className="border mx-3 border-[gray] rounded-2xl">
               <Picker
                 placeholder="เลือกยานพาหนะ"
@@ -93,8 +48,8 @@ const EmergencyReport = () => {
           </View>
 
           <Input
-            placeholder="กรอกรายละเอียดเหตุการณ์"
-            label="ลักษณะการเกิดเหตุ"
+            placeholder="กรอกรายละเอียด"
+            label="ข้อมูลอื่นๆ"
             labelStyle={styles.inputLabelStyle}
             numberOfLines={4}
             inputStyle={styles.inputStyle}
@@ -109,18 +64,18 @@ const EmergencyReport = () => {
               size={30}
             />
             <Text className="text-[#2512B9] font-bold text-center">
-              + เพิ่มรูปภาพ{'\n'}สถานที่เกิดเหตุ
+              + เพิ่มรูปภาพ{'\n'}ปัญหาบนท้องถนน
             </Text>
           </TouchableOpacity>
 
           <Text className="mt-4 text-xs">
-            เมื่อกดส่งข้อมูลแจ้งเหตุ แอพพลิเคชันจะเก็บข้อมูล ช่วงเวลา และ
+            เมื่อกดส่งข้อมูลปัญหา แอพพลิเคชันจะเก็บข้อมูล ช่วงเวลา และ
             สถานที่เป็นพิกัด
             ของท่านเพื่อติดตามเหตุและบันทึกข้อมูลไว้สำหรับการวิเคราะห์ข้อมูลต่อไป
           </Text>
 
-          <TouchableOpacity className="bg-[#E07F77] h-[40] w-[150] mt-8 self-center rounded-2xl items-center justify-center space-y-2">
-            <Text className="text-white font-bold text-xl">แจ้งเหตุ</Text>
+          <TouchableOpacity className="bg-[#FFBC49] h-[40] w-[150] mt-8 self-center rounded-2xl items-center justify-center space-y-2">
+            <Text className="text-white font-bold text-xl">แจ้งปัญหา</Text>
           </TouchableOpacity>
         </View>
       </ScrollView>

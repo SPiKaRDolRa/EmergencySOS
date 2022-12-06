@@ -36,13 +36,11 @@ const EmergencyReport = () => {
                 onValueChange={(itemValue, itemIndex) =>
                   setSelectedLanguage(itemValue)
                 }>
-                <Picker.Item label="รถยนต์" value="รถยนต์" />
-                <Picker.Item label="จักรยานยนต์" value="จักรยานยนต์" />
-                <Picker.Item
-                  label="จักรยาน, สกูตเตอร์"
-                  value="จักรยาน, สกูตเตอร์"
-                />
-                <Picker.Item label="รถบรรทุก" value="รถบรรทุก" />
+                <Picker.Item label="ไฟส่องสว่าง" value="ไฟส่องสว่าง" />
+                <Picker.Item label="เส้นจราจร" value="เส้นจราจร" />
+                <Picker.Item label="ป้ายจราจร" value="ป้ายจราจร" />
+                <Picker.Item label="สภาพพื้นผิวถนน" value="สภาพพื้นผิวถนน" />
+                <Picker.Item label="อื่นๆ" value="อื่นๆ" />
               </Picker>
             </View>
           </View>
@@ -51,7 +49,6 @@ const EmergencyReport = () => {
             placeholder="กรอกรายละเอียด"
             label="ข้อมูลอื่นๆ"
             labelStyle={styles.inputLabelStyle}
-            numberOfLines={4}
             inputStyle={styles.inputStyle}
           />
 
@@ -59,8 +56,8 @@ const EmergencyReport = () => {
             className="bg-[#ECECEC] h-[125] items-center justify-center space-y-2"
             style={styles.uploadTechable}>
             <MaterialCommunityIcons
-              name="image-filter-vintage"
-              color={'#FF8901'}
+              name="image-plus"
+              color={'#2512B9'}
               size={30}
             />
             <Text className="text-[#2512B9] font-bold text-center">

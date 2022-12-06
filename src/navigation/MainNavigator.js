@@ -1,49 +1,12 @@
 import React from 'react'
 
 import { NavigationContainer } from '@react-navigation/native'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
-import HomeScreen from '../screens/Home'
-import EmergencyReportScreen from '../screens/EmergencyReport'
-import TrafficProblemReportScreen from '../screens/TrafficProblemReport'
-import CallCenterScreen from '../screens/CallCenter'
+import HomeNavigator from './HomeNavigator'
 import MapScreen from '../screens/Map'
 
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
-
-const HomeStack = createNativeStackNavigator()
-
-function HomeStackScreen() {
-  return (
-    <HomeStack.Navigator>
-      <HomeStack.Screen
-        name="Home"
-        options={{
-          headerShown: false,
-        }}
-        component={HomeScreen}
-      />
-      <HomeStack.Screen
-        name="EmergencyReport"
-        options={{ title: 'กลับสู้หน้าหลัก' }}
-        component={EmergencyReportScreen}
-      />
-      <HomeStack.Screen
-        name="TrafficProblemReport"
-        options={{
-          title: 'กลับสู้หน้าหลัก',
-        }}
-        component={TrafficProblemReportScreen}
-      />
-      <HomeStack.Screen
-        name="CallCenter"
-        options={{ title: 'กลับสู้หน้าหลัก' }}
-        component={CallCenterScreen}
-      />
-    </HomeStack.Navigator>
-  )
-}
 
 const Tab = createBottomTabNavigator()
 
@@ -57,14 +20,10 @@ const MainNavigator = () => {
             headerShown: false,
             tabBarLabel: 'หน้าหลัก',
             tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons
-                name="account-circle"
-                color={color}
-                size={size}
-              />
+              <MaterialCommunityIcons name="home" color={color} size={size} />
             ),
           }}
-          component={HomeStackScreen}
+          component={HomeNavigator}
         />
 
         <Tab.Screen
@@ -74,11 +33,7 @@ const MainNavigator = () => {
             headerTitleAlign: 'center',
             tabBarLabel: 'แผนที่',
             tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons
-                name="home-city"
-                color={color}
-                size={size}
-              />
+              <MaterialCommunityIcons name="earth" color={color} size={size} />
             ),
           }}
           component={MapScreen}

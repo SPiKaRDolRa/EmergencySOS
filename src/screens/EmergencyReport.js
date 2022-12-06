@@ -50,7 +50,7 @@ const EmergencyReport = () => {
 
           <View className="mb-4">
             <Text className="ml-1 text-base font-bold text-black">
-              มีคู่กรณีมั้ย
+              มีคู่กรณีไหม
             </Text>
             <View className="flex-row">
               <CheckBox
@@ -96,7 +96,6 @@ const EmergencyReport = () => {
             placeholder="กรอกรายละเอียดเหตุการณ์"
             label="ลักษณะการเกิดเหตุ"
             labelStyle={styles.inputLabelStyle}
-            numberOfLines={4}
             inputStyle={styles.inputStyle}
           />
 
@@ -104,8 +103,8 @@ const EmergencyReport = () => {
             className="bg-[#ECECEC] h-[125] items-center justify-center space-y-2"
             style={styles.uploadTechable}>
             <MaterialCommunityIcons
-              name="image-filter-vintage"
-              color={'#FF8901'}
+              name="image-plus"
+              color={'#2512B9'}
               size={30}
             />
             <Text className="text-[#2512B9] font-bold text-center">

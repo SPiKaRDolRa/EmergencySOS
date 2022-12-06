@@ -23,7 +23,7 @@ const Home = ({ navigation }) => {
               source={require('../assets/rmutl-logo.png')}
               className="h-[100] w-[60]"
             />
-            <Text className="text-xl font-bold">มหาวิทยาลัยรายมงคลล้านนา</Text>
+            <Text className="text-xl font-bold">มหาวิทยาลัยราชมงคลล้านนา</Text>
           </View>
 
           <View className="space-y-6 items-center flex w-4/5">
@@ -34,7 +34,7 @@ const Home = ({ navigation }) => {
               />
 
               <Text className="font-bold text-black text-center">
-                ช่องทางบริการแจ้งเหตุและปัญหา บนท้องถนน{'\n'}
+                ช่องทางบริการแจ้งเหตุและปัญหาบนท้องถนน{'\n'}
                 ในจังหวัดเชียงใหม่
               </Text>
             </View>

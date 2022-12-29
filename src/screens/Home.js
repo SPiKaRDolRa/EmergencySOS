@@ -17,7 +17,7 @@ const Home = ({ navigation }) => {
   return (
     <SafeAreaView className="flex-1 bg-[#D9D9D9]">
       <ScrollView>
-        <View className="items-center space-y-4">
+        <View className="items-center space-y-4 mb-6">
           <View className="flex-row space-x-4 justify-center mt-2 items-center">
             <Image
               source={require('../assets/rmutl-logo.png')}

@@ -33,9 +33,9 @@ const EmergencyReport = ({ navigation }) => {
     accidentInfo: 'เสียหลัก',
     otherInformation: '',
     assumption: 'ขับรถเร็วเกินอัตราที่กำหนด',
+    img: '',
     lnt: '',
     lng: '',
-    img: '',
     createAt: '',
   })
 

@@ -17,7 +17,7 @@ const Home = ({ navigation }) => {
   return (
     <SafeAreaView className="flex-1 bg-[#D9D9D9]">
       <ScrollView>
-        <View className="items-center">
+        <View className="items-center mb-6">
           <View className="flex-row justify-center mt-6 items-center">
             <Text className="text-xl font-bold">มหาวิทยาลัยราชมงคลล้านนา</Text>
           </View>

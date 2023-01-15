@@ -17,20 +17,16 @@ const Home = ({ navigation }) => {
   return (
     <SafeAreaView className="flex-1 bg-[#D9D9D9]">
       <ScrollView>
-        <View className="items-center space-y-4 mb-6">
-          <View className="flex-row space-x-4 justify-center mt-2 items-center">
-            <Image
-              source={require('../assets/rmutl-logo.png')}
-              className="h-[100] w-[60]"
-            />
+        <View className="items-center">
+          <View className="flex-row justify-center mt-6 items-center">
             <Text className="text-xl font-bold">มหาวิทยาลัยราชมงคลล้านนา</Text>
           </View>
 
           <View className="space-y-6 items-center flex w-4/5">
-            <View className="space-y-2">
+            <View>
               <Image
-                source={require('../assets/civil-logo.png')}
-                className="h-[285] rounded-2xl"
+                source={require('../assets/CElogo_en.png')}
+                className="h-[310]"
               />
 
               <Text className="font-bold text-black text-center">
@@ -44,7 +40,7 @@ const Home = ({ navigation }) => {
                 onPress={moveEmergencyReport}
                 className="bg-[#E07F77] h-[80] items-center justify-center rounded-2xl">
                 <Text className="text-white text-2xl font-bold">
-                  แจ้งอุบัติเหตุ
+                  บันทึกอุบัติเหตุ
                 </Text>
               </TouchableOpacity>
             </View>
@@ -54,7 +50,7 @@ const Home = ({ navigation }) => {
                 onPress={moveTrafficProblemReport}
                 className="bg-[#F4C675] h-[80] items-center justify-center rounded-2xl w-[47.5%]">
                 <Text className="text-xl text-black font-bold text-center">
-                  แจ้ง{'\n'}ปัญหา
+                  บันทึก{'\n'}ปัญหา
                 </Text>
               </TouchableOpacity>
               <TouchableOpacity

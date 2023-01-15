@@ -30,7 +30,9 @@ const EmergencyReport = ({ navigation }) => {
     victimVechicle: 'รถยนต์',
     hasParties: false,
     partyVehicle: 'รถยนต์',
-    accidentInfo: '',
+    accidentInfo: 'เสียหลัก',
+    otherInformation: '',
+    assumption: 'ขับรถเร็วเกินอัตราที่กำหนด',
     lnt: '',
     lng: '',
     img: '',
@@ -110,6 +112,9 @@ const EmergencyReport = ({ navigation }) => {
 
     if (!formData.hasParties)
       setFormData(prev => ({ ...prev, partyVehicle: null }))
+
+    if (formData.accidentInfo !== 'อื่นๆ')
+      setFormData(prev => ({ ...prev, otherInformation: null }))
   }
 
   async function fetchReportEmergency() {
@@ -223,16 +228,97 @@ const EmergencyReport = ({ navigation }) => {
             </View>
           ) : null}
 
-          <Input
-            placeholder="กรอกรายละเอียดเหตุการณ์"
-            label="ลักษณะการเกิดเหตุ"
-            value={formData.accidentInfo}
-            onChange={e => {
-              setFormData({ ...formData, accidentInfo: e.nativeEvent.text })
-            }}
-            labelStyle={styles.inputLabelStyle}
-            inputStyle={styles.inputStyle}
-          />
+          <View className="mb-4">
+            <Text className="ml-1 text-base font-bold text-black">
+              ลักษณะการเกิดเหตุ
+            </Text>
+            <View className="border mx-3 border-[gray] rounded-2xl">
+              <Picker
+                placeholder="เลือกลักษณะการเกิดเหตุ"
+                label="ลักษณะการเกิดเหตุ"
+                selectedValue={formData.accidentInfo}
+                onValueChange={itemValue =>
+                  setFormData({ ...formData, accidentInfo: itemValue })
+                }>
+                <Picker.Item label="เสียหลัก" value="เสียหลัก" />
+                <Picker.Item
+                  label="เมาแล้วขับหลับใน"
+                  value="เมาแล้วขับหลับใน"
+                />
+                <Picker.Item label="ยานพาหนะบกพร่อง" value="ยานพาหนะบกพร่อง" />
+                <Picker.Item label="ชนประสานงา" value="ชนประสานงา" />
+                <Picker.Item label="ชนท้าย" value="ชนท้าย" />
+                <Picker.Item label="ชนด้านข้าง" value="ชนด้านข้าง" />
+                <Picker.Item label="เฉี่ยวชน" value="เฉี่ยวชน" />
+                <Picker.Item label="อื่นๆ" value="อื่นๆ" />
+              </Picker>
+            </View>
+          </View>
+
+          {formData.accidentInfo === 'อื่นๆ' ? (
+            <Input
+              placeholder="กรอกรายละเอียดเหตุการณ์"
+              label="ลักษณะอื่นๆ"
+              value={formData.otherInformation}
+              onChange={e => {
+                setFormData({
+                  ...formData,
+                  otherInformation: e.nativeEvent.text,
+                })
+              }}
+              labelStyle={styles.inputLabelStyle}
+              inputStyle={styles.inputStyle}
+            />
+          ) : null}
+
+          <View className="mb-4">
+            <Text className="ml-1 text-base font-bold text-black">
+              มูลเหตุที่สันนิษฐาน
+            </Text>
+            <View className="border mx-3 border-[gray] rounded-2xl">
+              <Picker
+                placeholder="เลือกมูลเหตุที่สันนิษฐาน"
+                label="มูลเหตุที่สันนิษฐาน"
+                selectedValue={formData.assumption}
+                onValueChange={itemValue =>
+                  setFormData({ ...formData, assumption: itemValue })
+                }>
+                <Picker.Item
+                  label="ขับรถเร็วเกินอัตราที่กำหนด"
+                  value="ขับรถเร็วเกินอัตราที่กำหนด"
+                />
+
+                <Picker.Item
+                  label="ตัดหน้าระยะกระชั้นชิด"
+                  value="ตัดหน้าระยะกระชั้นชิด"
+                />
+                <Picker.Item
+                  label="แซงรถอย่างผิดกฏหมาย"
+                  value="แซงรถอย่างผิดกฏหมาย"
+                />
+                <Picker.Item
+                  label="ขับรถไม่เปิดไฟ/ไม่ใช้แสงสว่างตามกำหนด"
+                  value="ขับรถไม่เปิดไฟ/ไม่ใช้แสงสว่างตามกำหนด"
+                />
+                <Picker.Item
+                  label="ไม่ให้สัญญาณจอด/ชลอ/เลี้ยว"
+                  value="ไม่ให้สัญญาณจอด/ชลอ/เลี้ยว"
+                />
+                <Picker.Item
+                  label="ฝ่าฝืนป้ายหยุดขณะออกจากท่างร่วมทางแยก"
+                  value="ฝ่าฝืนป้ายหยุดขณะออกจากท่างร่วมทางแยก"
+                />
+                <Picker.Item
+                  label="ฝ่าฝืนสัญญาณไฟ/เครื่องหมายจราจร"
+                  value="ฝ่าฝืนสัญญาณไฟ/เครื่องหมายจราจร"
+                />
+                <Picker.Item
+                  label="ไม่ขับรถในช่องทางเดินรถซ้ายสุดในถนนที่มี 4 ช่องทาง"
+                  value="ไม่ขับรถในช่องทางเดินรถซ้ายสุดในถนนที่มี 4 ช่องทาง"
+                />
+              </Picker>
+            </View>
+          </View>
 
           {bobImage === null ? (
             <TouchableOpacity

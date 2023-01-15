@@ -2,24 +2,42 @@ import React, { useEffect, useState } from 'react'
 import MapView, { Polyline, Marker } from 'react-native-maps'
 
 const Map = () => {
-  const [makers, setMaker] = useState([])
+  const [eMakers, setEMaker] = useState([])
+  const [tMakers, setTMaker] = useState([])
 
-  const [makesIsReady, setMakesIsReady] = useState(false)
+  const [eMakesIsReady, setEMakesIsReady] = useState(false)
+  const [tMakesIsReady, setTMakesIsReady] = useState(false)
 
-  const fetchReportMarker = async () => {
+  const fetchEMGReportMarker = async () => {
     try {
       const response = await fetch('http://34.87.71.192/get-emgr-marks')
       const json = await response.json()
 
-      setMaker(json)
-      setMakesIsReady(true)
+      setEMaker(json)
+      setEMakesIsReady(true)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  const fetchTFPReportMarker = async () => {
+    try {
+      const response = await fetch('http://34.87.71.192/get-tfpr-marks')
+      const json = await response.json()
+
+      setTMaker(json)
+      setTMakesIsReady(true)
     } catch (error) {
       console.error(error)
     }
   }
 
   useEffect(() => {
-    fetchReportMarker()
+    fetchEMGReportMarker()
+  }, [])
+
+  useEffect(() => {
+    fetchTFPReportMarker()
   }, [])
 
   return (
@@ -49,12 +67,26 @@ const Map = () => {
         strokeWidth={4}
       />
 
-      {makesIsReady
-        ? makers.map(maker => {
+      {eMakesIsReady
+        ? eMakers.map(maker => {
             return (
               <Marker
                 key={maker.id}
                 title={maker.accident_info}
+                coordinate={{
+                  latitude: parseFloat(maker.lnt),
+                  longitude: parseFloat(maker.lng),
+                }}></Marker>
+            )
+          })
+        : null}
+      {tMakesIsReady
+        ? tMakers.map(maker => {
+            return (
+              <Marker
+                pinColor="yellow"
+                key={maker.id}
+                title={maker.problem_category}
                 coordinate={{
                   latitude: parseFloat(maker.lnt),
                   longitude: parseFloat(maker.lng),

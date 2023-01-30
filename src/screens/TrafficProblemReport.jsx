@@ -110,7 +110,7 @@ const EmergencyReport = ({ navigation }) => {
   }
 
   async function fetchReportTrafficProblem() {
-    return await fetch('http://35.213.137.95/create-traffic-problem-report', {
+    return await fetch('{Your-Domain-Server}/create-traffic-problem-report', {
       method: 'POST',
       headers: {
         Accept: 'application/json',

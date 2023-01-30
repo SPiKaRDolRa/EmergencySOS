@@ -117,7 +117,7 @@ const EmergencyReport = ({ navigation }) => {
   }
 
   async function fetchReportEmergency() {
-    return await fetch('http://35.213.137.95/create-emergency-report', {
+    return await fetch('{Your-Domain-Server}/create-emergency-report', {
       method: 'POST',
       headers: {
         Accept: 'application/json',

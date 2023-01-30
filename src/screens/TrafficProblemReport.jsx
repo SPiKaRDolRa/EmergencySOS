@@ -66,7 +66,6 @@ const EmergencyReport = ({ navigation }) => {
     const ref = storage().ref(filename)
     const task = ref.putFile(uploadUri)
 
-    console.log('1', 'start')
     // set progress state
     task.on('state_changed', snapshot => {
       console.log(
@@ -111,7 +110,7 @@ const EmergencyReport = ({ navigation }) => {
   }
 
   async function fetchReportTrafficProblem() {
-    return await fetch('http://34.87.71.192/create-traffic-problem-report', {
+    return await fetch('http://35.213.137.95/create-traffic-problem-report', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -132,8 +131,6 @@ const EmergencyReport = ({ navigation }) => {
   async function startFetch() {
     Promise.all([uploadImage, openFineLocationRequest, setTimeStamp]).then(
       async () => {
-        console.log(formData)
-
         await fetchReportTrafficProblem()
 
         Toast.show({

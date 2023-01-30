@@ -70,7 +70,6 @@ const EmergencyReport = ({ navigation }) => {
     const ref = storage().ref(filename)
     const task = ref.putFile(uploadUri)
 
-    console.log('1', 'start')
     // set progress state
     task.on('state_changed', snapshot => {
       console.log(
@@ -118,7 +117,7 @@ const EmergencyReport = ({ navigation }) => {
   }
 
   async function fetchReportEmergency() {
-    return await fetch('http://34.87.71.192/create-emergency-report', {
+    return await fetch('http://35.213.137.95/create-emergency-report', {
       method: 'POST',
       headers: {
         Accept: 'application/json',

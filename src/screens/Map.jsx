@@ -10,7 +10,7 @@ const Map = () => {
 
   const fetchEMGReportMarker = async () => {
     try {
-      const response = await fetch('http://34.87.71.192/get-emgr-marks')
+      const response = await fetch('http://35.213.137.95/get-emgr-marks')
       const json = await response.json()
 
       setEMaker(json)
@@ -22,7 +22,7 @@ const Map = () => {
 
   const fetchTFPReportMarker = async () => {
     try {
-      const response = await fetch('http://34.87.71.192/get-tfpr-marks')
+      const response = await fetch('http://35.213.137.95/get-tfpr-marks')
       const json = await response.json()
 
       setTMaker(json)
